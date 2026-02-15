@@ -1,0 +1,11 @@
+:root {
+    --color-primary: #e98b20;
+    --color-secondary: #ffb117;
+    --text: #0f0411;
+    --background: #eaf5ff;
+    --secondary: #ffb117;
+    --accent: #e07400;
+    --font-family-base: 'Times New Roman', Times, arial;
+    --font-size-base: 16px;
+    --line-height-base: 1.5;
+}
