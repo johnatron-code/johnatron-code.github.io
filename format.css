@@ -8,4 +8,111 @@
     --font-family-base: 'Times New Roman', Times, arial;
     --font-size-base: 16px;
     --line-height-base: 1.5;
+    --sidebar-width: 260px;
+    --bg-sidebar: #2c3e50;
+    --bg-header: #34495e;
+    --bg-nav: #e07400;
+    --bg-content: #ecf0f1;
+    --text-light: white;
+    --text-dark: #2c3e50;
+}
+html, body {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--text);
+    background-color: var(--background);
+    height: 100%;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+header {
+    grid-area: header;
+    background-color: var(--bg-header);
+    color: var(--text-light);
+    text-align: center;
+    padding: 1em;
+}
+nav {
+    background-color: var(--bg-nav);
+    color: var(--text-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+}
+main {
+    grid-area: main;
+    background-color: var(--bg-content);
+    color: var(--text-dark);
+    padding: 2em;
+}
+h1, h2, h3 {
+    margin-top: 0;
+}
+h1 {
+    color: var(--color-primary);
+}
+h2 {
+    color: var(--color-secondary);
+}
+h3 {
+    color: var(--text-dark);
+}
+footer {
+    grid-area: footer;
+    background-color: var(--bg-header);
+    color: var(--text-light);
+    text-align: center;
+    padding: 1em;
+}
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "footer";
+}
+.sidebar {
+    grid-area: sidebar;
+    background-color: var(--bg-nav);
+    color: var(--text-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--nav-height);
+    padding: 1em;
+    display: none; /* hide sidebar by default */
+}
+.pic {
+    display: none;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+@media (min-width: 800px) {
+    .container {
+      grid-template-columns: 240px 1fr;
+      grid-template-areas: 
+        "pic header"
+        "sidebar main"
+        "sidebar footer";
+    }
+    nav {
+        display: none; /* hide nav on larger screens */
+    }
+    .pic {
+        display: block; /* show picture on larger screens */
+    }
+    header {
+        background-image: none;
+    }
+    nav ul{
+        flex-direction: column;
+        padding-top: 1em;
+    }
+    .sidebar {
+        display: block; /* show sidebar on larger screens */
+    }
 }
